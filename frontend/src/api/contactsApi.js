@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: '/api/contacts',
+  baseURL: 'https://inglu-tlvg.onrender.com/api/contacts',
   withCredentials: true,
 });
 
