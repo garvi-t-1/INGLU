@@ -1,28 +1,31 @@
 import axios from 'axios';
 
-const BASE = '/api/contacts';
-
 const apiClient = axios.create({
-  withCredentials: true, // Important for cookies
+  baseURL: '/api/contacts',
+  withCredentials: true,
 });
 
-
-// Get all contacts (optional search & category query params)
+// Get all contacts
 export const fetchContacts = (search = '', category = 'all') =>
-  axios.get(BASE, { params: { search, category } }).then(r => r.data.data);
+  apiClient.get('/', { params: { search, category } })
+    .then(r => r.data.data);
 
-// Get one contact by id
+// Get one contact
 export const fetchContact = (id) =>
-  axios.get(`${BASE}/${id}`).then(r => r.data.data);
+  apiClient.get(`/${id}`)
+    .then(r => r.data.data);
 
-// Create a new contact
+// Create
 export const createContact = (data) =>
-  axios.post(BASE, data).then(r => r.data.data);
+  apiClient.post('/', data)
+    .then(r => r.data.data);
 
-// Update an existing contact
+// Update
 export const updateContact = (id, data) =>
-  axios.put(`${BASE}/${id}`, data).then(r => r.data.data);
+  apiClient.put(`/${id}`, data)
+    .then(r => r.data.data);
 
-// Delete a contact
+// Delete
 export const deleteContact = (id) =>
-  axios.delete(`${BASE}/${id}`).then(r => r.data);
+  apiClient.delete(`/${id}`)
+    .then(r => r.data);

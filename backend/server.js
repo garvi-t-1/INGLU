@@ -15,7 +15,7 @@ const app = express();
 
 // ── Middleware ──────────────────────────────────────────────
 app.use(cors({
-  origin: "https://inglu-1-5qoe.onrender.com",
+  origin: "https://inglu-2-qi3q.onrender.com/",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
