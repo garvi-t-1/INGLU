@@ -14,7 +14,11 @@ connectDB();
 const app = express();
 
 // ── Middleware ──────────────────────────────────────────────
-app.use(cors());                // Allow cross-origin requests from React
+app.use(cors({
+  origin: "https://inglu-1-5qoe.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());        // Parse incoming JSON request bodies
 app.use(express.urlencoded({ extended: false }));
 
